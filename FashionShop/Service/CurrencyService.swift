@@ -23,8 +23,6 @@ final class CurrencyService : RequestHandler {
         super.init()
         
         numberFormatter.numberStyle = .currency
-        
-        self.fetchConverter()
     }
     
     func fetchConverter() {

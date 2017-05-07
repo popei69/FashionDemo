@@ -41,7 +41,7 @@ class ProductViewController: UIViewController {
         controller.delegate = self
         self.fetchProducts()
         
-        CurrencyService.shared
+        CurrencyService.shared.fetchConverter()
     }
     
     func fetchProducts() {
