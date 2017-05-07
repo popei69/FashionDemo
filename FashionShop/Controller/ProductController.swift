@@ -8,18 +8,30 @@
 
 import Foundation
 
-protocol ProductControllerDelegate {
-    func didFetchData(posts: [Product])
+protocol ProductControllerDelegate : class {
+    func didFetchData(products: [Product])
     func didFailFetchData(error: ErrorResult)
 }
 
 final class ProductController : RequestHandler {
     
     let endpoint = "http://www.matchesfashion.com/womens/shop?format=json"
-    var delegate : ProductControllerDelegate?
+    weak var delegate : ProductControllerDelegate?
+    var task : URLSessionTask?
     
     func fetchProducts() {
-        RequestService().loadData(urlString: endpoint, completion: self.networkResult(completion: self.parser))
+        // cancel previous request if already in progress
+        cancelFetchProducts()
+        
+        task = RequestService().loadData(urlString: endpoint, completion: self.networkResult(completion: self.parser))
+    }
+    
+    func cancelFetchProducts() {
+        
+        if let task = task {
+            task.cancel()
+        }
+        task = nil
     }
     
     var parser : ((Result<Shop, ErrorResult>) -> Void) {
@@ -30,7 +42,7 @@ final class ProductController : RequestHandler {
                 case .success(let shop) :
                     // reload data
                     print("Parser success \(shop.products)")
-                    self.delegate?.didFetchData(posts: shop.products)
+                    self.delegate?.didFetchData(products: shop.products)
                     break
                 case .failure(let error) :
                     print("Parser error \(error)")

@@ -11,7 +11,7 @@ import Foundation
 struct Product {
     let name : String
     
-    var imageString : String?
+    var image : ProductImage?
     var price : Price?
     var designer : Designer?
     
@@ -25,7 +25,8 @@ extension Product : Parceable {
     static func parseObject(dictionary: [String : AnyObject]) -> Result<Product, ErrorResult> {
         if let name = dictionary["name"] as? String,
             let price = dictionary["price"] as? [String : AnyObject], 
-            let designer = dictionary["designer"] as? [String : AnyObject] {
+            let designer = dictionary["designer"] as? [String : AnyObject],
+            let imageMap = dictionary["primaryImageMap"] as? [String : AnyObject] {
             
             var newProduct = Product(name: name)
             
@@ -33,6 +34,7 @@ extension Product : Parceable {
             switch Price.parseObject(dictionary: price) {
             case .success(let newPrice):
                 newProduct.price = newPrice
+                break
             default:
                 newProduct.price = nil
             }
@@ -41,8 +43,18 @@ extension Product : Parceable {
             switch Designer.parseObject(dictionary: designer) {
             case .success(let newDesigner):
                 newProduct.designer = newDesigner
+                break
             default:
                 newProduct.designer = nil
+            }
+            
+            // parse image
+            switch ProductImage.parseObject(dictionary: imageMap) {
+            case .success(let newImage):
+                newProduct.image = newImage
+                break
+            default:
+                newProduct.image = nil
             }
             
             return Result.success(newProduct)

@@ -11,13 +11,43 @@ import UIKit
 class ProductViewController: UIViewController {
     
     let controller = ProductController()
+    var products : [Product] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    // ui 
+    let refreshControl = UIRefreshControl()
+    @IBOutlet weak var collectionView : UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Shop"
 
+        refreshControl.addTarget(self, action: #selector(ProductViewController.fetchProducts), for: .valueChanged)
+        refreshControl.tintColor = UIColor.purple
+        
+        collectionView.addSubview(refreshControl)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        let barButton = UIBarButtonItem(title: "Currency", style: .plain, target: self, action: #selector(ProductViewController.displayCurrency))
+        self.navigationItem.rightBarButtonItem = barButton
+        
+        
         // Do any additional setup after loading the view.
         controller.delegate = self
+        self.fetchProducts()
+    }
+    
+    func fetchProducts() {
         controller.fetchProducts()
+    }
+    
+    func displayCurrency() {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,13 +68,33 @@ class ProductViewController: UIViewController {
 
 }
 
+extension ProductViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
+        
+        collectionCell.product = products[indexPath.row]
+        
+        return collectionCell
+    }
+}
+
 extension ProductViewController : ProductControllerDelegate {
     
-    func didFetchData(posts: [Product]) {
-        
+    func didFetchData(products: [Product]) {
+        refreshControl.endRefreshing()
+        self.products = products
     }
     
     func didFailFetchData(error: ErrorResult) {
-        
+        refreshControl.endRefreshing()
     }
 }

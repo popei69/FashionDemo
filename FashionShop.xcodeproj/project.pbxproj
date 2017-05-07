@@ -25,6 +25,11 @@
 		14264AB11EBE330D00E640D8 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14264AB01EBE330D00E640D8 /* RequestHandler.swift */; };
 		14264AB31EBE356400E640D8 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14264AB21EBE356400E640D8 /* ProductViewController.swift */; };
 		14264AB51EBE397A00E640D8 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14264AB41EBE397A00E640D8 /* Shop.swift */; };
+		14315FB61EBF38C000EDD844 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FB51EBF38C000EDD844 /* ProductCollectionViewCell.swift */; };
+		14315FB81EBF3E7800EDD844 /* UIImageViewAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FB71EBF3E7800EDD844 /* UIImageViewAdditions.swift */; };
+		14315FBA1EBF401D00EDD844 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FB91EBF401D00EDD844 /* ProductImage.swift */; };
+		14315FBE1EBF4D3700EDD844 /* CurrencyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FBD1EBF4D3700EDD844 /* CurrencyRate.swift */; };
+		14315FC01EBF510A00EDD844 /* ConversionCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FBF1EBF510A00EDD844 /* ConversionCurrency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 		14264AB01EBE330D00E640D8 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestHandler.swift; path = Service/RequestHandler.swift; sourceTree = "<group>"; };
 		14264AB21EBE356400E640D8 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewController.swift; path = View/ProductViewController.swift; sourceTree = "<group>"; };
 		14264AB41EBE397A00E640D8 /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shop.swift; path = Model/Shop.swift; sourceTree = "<group>"; };
+		14315FB51EBF38C000EDD844 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCollectionViewCell.swift; path = View/Cell/ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		14315FB71EBF3E7800EDD844 /* UIImageViewAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewAdditions.swift; path = Resource/UIImageViewAdditions.swift; sourceTree = "<group>"; };
+		14315FB91EBF401D00EDD844 /* ProductImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductImage.swift; path = Model/ProductImage.swift; sourceTree = "<group>"; };
+		14315FBD1EBF4D3700EDD844 /* CurrencyRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyRate.swift; path = Model/CurrencyRate.swift; sourceTree = "<group>"; };
+		14315FBF1EBF510A00EDD844 /* ConversionCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversionCurrency.swift; path = Model/ConversionCurrency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +137,8 @@
 		14264A931EBE294400E640D8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				14264A941EBE295F00E640D8 /* Designer.swift */,
-				14264A961EBE29BD00E640D8 /* Price.swift */,
-				14264A981EBE2A2A00E640D8 /* Product.swift */,
-				14264AB41EBE397A00E640D8 /* Shop.swift */,
+				14315FBC1EBF4D2600EDD844 /* Currency */,
+				14315FBB1EBF4D1400EDD844 /* Object */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				14264AAA1EBE2B6900E640D8 /* Reachability.swift */,
+				14315FB71EBF3E7800EDD844 /* UIImageViewAdditions.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -191,9 +200,39 @@
 		14264AAD1EBE2B8100E640D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14315FB41EBF388C00EDD844 /* Cell */,
 				14264AB21EBE356400E640D8 /* ProductViewController.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		14315FB41EBF388C00EDD844 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				14315FB51EBF38C000EDD844 /* ProductCollectionViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		14315FBB1EBF4D1400EDD844 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				14264A941EBE295F00E640D8 /* Designer.swift */,
+				14264A961EBE29BD00E640D8 /* Price.swift */,
+				14264A981EBE2A2A00E640D8 /* Product.swift */,
+				14264AB41EBE397A00E640D8 /* Shop.swift */,
+				14315FB91EBF401D00EDD844 /* ProductImage.swift */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		14315FBC1EBF4D2600EDD844 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				14315FBD1EBF4D3700EDD844 /* CurrencyRate.swift */,
+				14315FBF1EBF510A00EDD844 /* ConversionCurrency.swift */,
+			);
+			name = Currency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14315FBE1EBF4D3700EDD844 /* CurrencyRate.swift in Sources */,
+				14315FB81EBF3E7800EDD844 /* UIImageViewAdditions.swift in Sources */,
+				14315FBA1EBF401D00EDD844 /* ProductImage.swift in Sources */,
 				14264AB31EBE356400E640D8 /* ProductViewController.swift in Sources */,
 				14264AA51EBE2AE500E640D8 /* RequestFactory.swift in Sources */,
 				14264A971EBE29BD00E640D8 /* Price.swift in Sources */,
@@ -306,8 +348,10 @@
 				14264A9D1EBE2A7800E640D8 /* ParserService.swift in Sources */,
 				14264A991EBE2A2A00E640D8 /* Product.swift in Sources */,
 				14264AA01EBE2AA100E640D8 /* Result.swift in Sources */,
+				14315FB61EBF38C000EDD844 /* ProductCollectionViewCell.swift in Sources */,
 				14264AB11EBE330D00E640D8 /* RequestHandler.swift in Sources */,
 				14264AAF1EBE2E7900E640D8 /* ProductController.swift in Sources */,
+				14315FC01EBF510A00EDD844 /* ConversionCurrency.swift in Sources */,
 				14264AAB1EBE2B6900E640D8 /* Reachability.swift in Sources */,
 				14264AA21EBE2ABB00E640D8 /* ErrorResult.swift in Sources */,
 				14264AB51EBE397A00E640D8 /* Shop.swift in Sources */,
@@ -516,6 +560,7 @@
 				14264A8F1EBE28D100E640D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14264A901EBE28D100E640D8 /* Build configuration list for PBXNativeTarget "FashionShopTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +569,7 @@
 				14264A921EBE28D100E640D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
