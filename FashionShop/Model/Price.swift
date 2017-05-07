@@ -9,7 +9,7 @@
 import Foundation
 
 struct Price {
-    let value : Int
+    let value : Double
     let currencyIso : String
     let formattedValue : String
 }
@@ -17,7 +17,7 @@ struct Price {
 extension Price : Parceable {
     static func parseObject(dictionary: [String : AnyObject]) -> Result<Price, ErrorResult> {
         
-        if let value = dictionary["value"] as? Int,
+        if let value = dictionary["value"] as? Double,
             let currencyIso = dictionary["currencyIso"] as? String,
             let formattedValue = dictionary["formattedValue"] as? String {
             

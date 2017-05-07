@@ -41,7 +41,7 @@ final class ProductController : RequestHandler {
                 switch postsResult {
                 case .success(let shop) :
                     // reload data
-                    print("Parser success \(shop.products)")
+//                    print("Parser success \(shop.products)")
                     self.delegate?.didFetchData(products: shop.products)
                     break
                 case .failure(let error) :

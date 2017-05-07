@@ -30,6 +30,7 @@
 		14315FBA1EBF401D00EDD844 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FB91EBF401D00EDD844 /* ProductImage.swift */; };
 		14315FBE1EBF4D3700EDD844 /* CurrencyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FBD1EBF4D3700EDD844 /* CurrencyRate.swift */; };
 		14315FC01EBF510A00EDD844 /* ConversionCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FBF1EBF510A00EDD844 /* ConversionCurrency.swift */; };
+		14315FC21EBFB6D000EDD844 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14315FC11EBFB6D000EDD844 /* CurrencyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		14315FB91EBF401D00EDD844 /* ProductImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductImage.swift; path = Model/ProductImage.swift; sourceTree = "<group>"; };
 		14315FBD1EBF4D3700EDD844 /* CurrencyRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyRate.swift; path = Model/CurrencyRate.swift; sourceTree = "<group>"; };
 		14315FBF1EBF510A00EDD844 /* ConversionCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversionCurrency.swift; path = Model/ConversionCurrency.swift; sourceTree = "<group>"; };
+		14315FC11EBFB6D000EDD844 /* CurrencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyService.swift; path = Service/CurrencyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				14264AA31EBE2AD800E640D8 /* Request */,
 				14264A9E1EBE2A8800E640D8 /* Result */,
 				14264A9B1EBE2A5500E640D8 /* Parser */,
+				14315FC11EBFB6D000EDD844 /* CurrencyService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14315FC21EBFB6D000EDD844 /* CurrencyService.swift in Sources */,
 				14315FBE1EBF4D3700EDD844 /* CurrencyRate.swift in Sources */,
 				14315FB81EBF3E7800EDD844 /* UIImageViewAdditions.swift in Sources */,
 				14315FBA1EBF401D00EDD844 /* ProductImage.swift in Sources */,

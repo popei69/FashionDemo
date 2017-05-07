@@ -25,7 +25,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
             nameLabel.text = product.name
             
             if let price = product.price {
-                priceLabel.text = price.formattedValue
+                priceLabel.text = CurrencyService.shared.convert(price: price).formattedValue
             }
             
             if let designer = product.designer {

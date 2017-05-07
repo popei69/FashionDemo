@@ -13,6 +13,11 @@ enum Currency : String {
     case GBP
 }
 
+enum CurrencyLocale : String {
+    case EUR = "fr_FR"
+    case GBP = "en_UK"
+}
+
 struct CurrencyRate {
     
     let currency : Currency

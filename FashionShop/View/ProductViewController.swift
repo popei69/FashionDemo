@@ -40,14 +40,12 @@ class ProductViewController: UIViewController {
         // Do any additional setup after loading the view.
         controller.delegate = self
         self.fetchProducts()
+        
+        CurrencyService.shared
     }
     
     func fetchProducts() {
         controller.fetchProducts()
-    }
-    
-    func displayCurrency() {
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,5 +94,26 @@ extension ProductViewController : ProductControllerDelegate {
     
     func didFailFetchData(error: ErrorResult) {
         refreshControl.endRefreshing()
+    }
+}
+
+extension ProductViewController {
+    
+    func displayCurrency() {
+        
+        let alertController = UIAlertController(title: "Choose currency", message: "Select currency you would like to display", preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: Currency.GBP.rawValue, style: .default, handler: { [weak self]action in
+            CurrencyService.shared.currency = .GBP
+            self?.collectionView.reloadData()
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: Currency.EUR.rawValue, style: .default, handler: { [weak self] action in
+            CurrencyService.shared.currency = .EUR
+            self?.collectionView.reloadData()
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.navigationController?.present(alertController, animated: true, completion: nil)
     }
 }
